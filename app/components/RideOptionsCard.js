@@ -11,18 +11,27 @@ const data = [
     {
         id: "Uber-X-123",
         title: "Riya Bhargava",
+        gender: "Female",
+        rating: "4.5",
+        since: "7",
         multiplier: 1,
         image: "https://links.papareact.com/3pn"
     },
     {
         id: "Uber-XL-456",
         title: "Abhijeet Vaghela",
+        gender: "Female",
+        rating: "4.5",
+        since: "7",
         multiplier: 1.2,
         image: "https://links.papareact.com/5w8"
     },
     {
         id: "Uber-XL-911",
         title: "Alex John",
+        gender: "Female",
+        rating: "4.5",
+        since: "7",
         multiplier: 1.9,
         image: "https://links.papareact.com/5w8"
     },
@@ -53,7 +62,8 @@ const RideOptionsCard = () => {
 
     const onChoose = () =>{
         if(!selected) return Alert.alert('Please select a ride option')
-        navigation.push('HostDetails', { data: {...selected, distance: travelTimeInformation?.distance?.text, time: travelTimeInformation?.duration.text, price: travelConst(selected)} })
+        console.log(selected?.title)
+        navigation.push('HostDetails', { title1: selected?.title,multiplier1: selected?.multiplier,rating:selected?.rating, gender:selected?.gender, since:selected?.since })
     }
 
     return (

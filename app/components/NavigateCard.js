@@ -82,6 +82,7 @@ const NavigateCard = () => {
                 <View style={tailwind`mt-3 flex-row justify-evenly py-3 pb-10 border-t border-gray-100`}>
                     <TouchableOpacity
                         style={[tailwind`flex-row bg-white h-10 px-4 py-3 rounded-full border border-black`,{backgroundColor:"olivedrab"}]}
+                        onPress={() => navigation.push('RideOptionsCard')}
                     >
                         <Icon name="car" type="font-awesome" color="white" size={16} />
                         <Text style={tailwind`text-white text-center pl-3`}>Ride Now</Text>

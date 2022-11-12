@@ -25,17 +25,28 @@ const SuccessScreen = ({ route }) => {
                 />
             </TouchableOpacity>
             <View style={tw`self-center`}>
-                <View style={tw`p-5 w-full `}>
+                <View>
+                
+                        <Icon
+                        type="feather"
+                        name="check-circle"
+                        color="green"
+                        size={40}
+                        style={tailwind`pl-2 pt-0.5`}
+                        />
+                        <Text style={[tailwind`text-center text-3xl font-bold pl-5`,{color:"green"}]}>You're All Set!</Text>
+                </View>
+                <View style={tw`p-5 w-full self-center`}>
                     <Image
                         source={require('../assets/car_animation.gif')}
                         style={tw`w-60 h-40`}
                     />
                 </View>
                 <View style={tw`p-5 text-center self-center`}>
-                    <Text style={tw`font-bold text-lg mb-3 text-center`}>Your {data?.title} is on the way</Text>
+                    <Text style={tw`font-bold text-lg mb-3 text-center`}>Your host {data?.title} is on the way</Text>
                     <Text style={tw`text-base text-center`}>Ride cost: ${data?.price}</Text>
-                    <Text style={tw`text-base text-center`}>Estimated time: ${data?.time}</Text>
-                    <Text style={tw`text-base text-center`}>Estimated distance: ${data?.distance}</Text>
+                    <Text style={tw`text-base text-center`}>Estimated time: {data?.time}</Text>
+                    <Text style={tw`text-base text-center`}>Estimated distance: {data?.distance}</Text>
                 </View>
             </View>
         </Screen>

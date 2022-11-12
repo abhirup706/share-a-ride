@@ -10,19 +10,25 @@ import { selectDestination, selectOrigin, selectTravelTimeInformation } from '..
 const data = [
     {
         id: "Uber-X-123",
-        title: "Uber X",
+        title: "Riya Bhargava",
         multiplier: 1,
         image: "https://links.papareact.com/3pn"
     },
     {
         id: "Uber-XL-456",
-        title: "Uber XL",
+        title: "Abhijeet Vaghela",
         multiplier: 1.2,
         image: "https://links.papareact.com/5w8"
     },
     {
+        id: "Uber-XL-911",
+        title: "Alex John",
+        multiplier: 1.9,
+        image: "https://links.papareact.com/5w8"
+    },
+    {
         id: "Uber-LUX-123",
-        title: "Uber LUX",
+        title: "Manasi Barhan Purkar",
         multiplier: 1.75,
         image: "https://links.papareact.com/7pf"
     },
@@ -47,12 +53,12 @@ const RideOptionsCard = () => {
 
     const onChoose = () =>{
         if(!selected) return Alert.alert('Please select a ride option')
-        navigation.push('SuccessScreen', { data: {...selected, distance: travelTimeInformation?.distance?.text, time: travelTimeInformation?.duration.text, price: travelConst(selected)} })
+        navigation.push('HostDetails', { data: {...selected, distance: travelTimeInformation?.distance?.text, time: travelTimeInformation?.duration.text, price: travelConst(selected)} })
     }
 
     return (
         <Screen style={tailwind`bg-white h-full`}>
-            <View style={tailwind`items-center flex-row justify-center mb-3`}>
+            <View style={tailwind`items-center flex-row justify-center mb-3 mt-3`}>
                 <TouchableOpacity
                     style={{ left: 10, position: 'absolute', zIndex: 100 }}
                     onPress={() => navigation.push("NavigateCard")}
@@ -76,10 +82,13 @@ const RideOptionsCard = () => {
                             style={tailwind`flex-row items-center justify-between px-5 ${selected?.id === item.id && 'bg-gray-100'}`}
                             onPress={() => setSelected(item)}
                         >
-                            <Image
+                            {/* <Image
                                 source={{ uri: item.image }}
                                 style={styles.image}
-                            />
+                            /> */}
+                            <View style={tailwind`mr-5 p-2 mb-2 rounded-full border-2`}>
+                                <Icon name="user" type="font-awesome" color="black" size={25}/>
+                            </View>
                             <View style={tailwind`flex-row items-center justify-between flex-1`}>
                                 <View>
                                     <Text style={tailwind`text-xl font-bold text-black`}>{item.title}</Text>
@@ -101,7 +110,7 @@ const RideOptionsCard = () => {
             </View>
             <View>
                 <TouchableOpacity
-                    style={tailwind`bg-black py-3 m-3 rounded-lg ${!selected && 'bg-gray-300'}`}
+                    style={[tailwind`bg-black py-3 m-3 rounded-lg ${!selected && 'bg-gray-300'}`,{backgroundColor:"olivedrab"}]}
                     disabled={!selected}
                     onPress={onChoose}
                 >

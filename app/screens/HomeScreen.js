@@ -8,7 +8,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../redux/slices/navSlice';
 import NavFavourites from '../components/NavFavourites';
-import {logo} from '../assets/logo.png'
+
 
 console.log(GOOGLE_MAP_APIKEY)
 const GOOGLE_MAP_APIKEY = "AIzaSyA2NZvrKgSRaGgu2FW3SMPPAAfwBtAGKgo"
@@ -20,7 +20,7 @@ const HomeScreen = () => {
         <Screen style={tw`bg-white h-full`}>
             <View style={tw`p-5`}>
                 <Image
-                    source={{ logo }}
+                    source={{uri:'https://links.papareact.com/gzs'}}
                     style={styles.logo}
                 />
                 <View style={tw`mb-3`}>

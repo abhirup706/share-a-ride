@@ -8,7 +8,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../redux/slices/navSlice';
 import NavFavourites from '../components/NavFavourites';
-import {logo} from '../assets/logo'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 console.log(GOOGLE_MAP_APIKEY)
  const GOOGLE_MAP_APIKEY = "AIzaSyA2NZvrKgSRaGgu2FW3SMPPAAfwBtAGKgo"
@@ -18,9 +18,20 @@ const HomeScreen = () => {
 
     return (
         <Screen style={tw`bg-white h-full`}>
+            <View style={{flex:1,backgroundColor:"grey"}}>
+                <TouchableOpacity style={{backgroundColor:"black"}}>
+                    <Text style={{color:"white"}}>Home</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{color:"black"}}>
+                    <Text style={{color:"white"}}>Settings</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{color:"black"}}>
+                    <Text style={{color:"white"}}>About Us</Text>
+                </TouchableOpacity>
+            </View>
             <View style={tw`p-5`}>
                 <Image
-                    source={{ uri: {logo} }}
+                    source={{ uri: 'https://links.papareact.com/gzs' }}
                     style={styles.logo}
                 />
                 <View style={tw`mb-3`}>

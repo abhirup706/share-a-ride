@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import NavigateCard from '../components/NavigateCard';
 import RideOptionsCard from '../components/RideOptionsCard';
+import HostDetails from '../components/HostDetails';
 
 const Stack = createStackNavigator();
 
@@ -12,6 +13,7 @@ const MapNavigator = () => {
             headerShown: false
         }}>
             <Stack.Screen name="NavigateCard" component={NavigateCard} />
+            <Stack.Screen name="HostDetails" component={HostDetails} />
             <Stack.Screen name="RideOptionsCard" component={RideOptionsCard} />
         </Stack.Navigator>
     );

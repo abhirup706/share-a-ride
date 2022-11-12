@@ -5,6 +5,7 @@ import MapScreen from '../screens/MapScreen';
 import EatsScreen from '../screens/EatsScreen';
 import SuccessScreen from '../screens/SuccessScreen';
 
+
 const Stack = createStackNavigator();
 
 const MainNavigator = () => {

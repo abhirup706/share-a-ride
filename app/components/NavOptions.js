@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 const data = [
     {
         id: '1224',
-        title: 'Get a ride',
+        title: 'Rider',
         image: 'https://links.papareact.com/3pn',
         screen: 'MapScreen'
     },

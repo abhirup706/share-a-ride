@@ -17,7 +17,7 @@ const MapScreen = () => {
     
 
     useEffect(() => {
-        if(!origin) navigation.replace('NavigateCard')
+        if(!origin) navigation.replace('SelectCarScreen')
     }, [])
 
     return (

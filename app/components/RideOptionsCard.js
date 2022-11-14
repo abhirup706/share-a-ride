@@ -15,7 +15,9 @@ const data = [
         rating: "4.5",
         since: "7",
         multiplier: 1,
-        image: "https://links.papareact.com/3pn"
+        image: "https://links.papareact.com/3pn",
+        vehicle_name : "Toyota Camry",
+        vehicle_color : "Black"
     },
     {
         id: "Uber-XL-456",
@@ -24,7 +26,9 @@ const data = [
         rating: "4.2",
         since: "7",
         multiplier: 1.2,
-        image: "https://links.papareact.com/5w8"
+        image: "https://links.papareact.com/5w8",
+        vehicle_name : "Honda Accord",
+        vehicle_color : "Blue"
     },
     {
         id: "Uber-XL-911",
@@ -33,7 +37,9 @@ const data = [
         rating: "4.7",
         since: "7",
         multiplier: 1.9,
-        image: "https://links.papareact.com/5w8"
+        image: "https://links.papareact.com/5w8",
+        vehicle_name : "Tesla Model X",
+        vehicle_color : "White"
     },
     {
         id: "Uber-LUX-123",
@@ -42,7 +48,9 @@ const data = [
         rating:"4.9",
         since:"3",
         multiplier: 1.75,
-        image: "https://links.papareact.com/7pf"
+        image: "https://links.papareact.com/7pf",
+        vehicle_name : "Toyota Tundra",
+        vehicle_color : "Black"
     },
 ]
 
@@ -66,7 +74,7 @@ const RideOptionsCard = () => {
     const onChoose = () =>{
         if(!selected) return Alert.alert('Please select a ride option')
         console.log(selected?.title)
-        navigation.push('HostDetails', { title1: selected?.title,multiplier1: selected?.multiplier,rating:selected?.rating, gender:selected?.gender, since:selected?.since })
+        navigation.push('HostDetails', { title1: selected?.title,multiplier1: selected?.multiplier,rating:selected?.rating, gender:selected?.gender, since:selected?.since ,vehicle_name:selected?.vehicle_name,vehicle_color:selected?.vehicle_color})
     }
 
     return (
@@ -123,8 +131,8 @@ const RideOptionsCard = () => {
             </View>
             <View>
                 <TouchableOpacity
-                    style={[tailwind`bg-black py-3 m-3 rounded-lg ${!selected && 'bg-gray-300'}`,{backgroundColor:"olivedrab"}]}
-                    disabled={!selected}
+                    style={[tailwind`py-3 m-3 mt-1 rounded-lg ${!buttonEnabled && 'bg-gray-400'}`,buttonEnabled && {backgroundColor:"olivedrab"}]}
+                    disabled={!buttonEnabled}
                     onPress={onChoose}
                 >
                     <Text style={tailwind`text-center text-white text-xl`}>Ride With {selected?.title}</Text>

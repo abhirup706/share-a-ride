@@ -4,7 +4,6 @@ import { useState, React, useCallback } from "react";
 import Colors from "../constants/colors";
 import SelectDropdown from "react-native-select-dropdown";
 import { Modal, Pressable } from "react-native";
-import { Card } from "react-native-elements";
 import {
   StyleSheet,
   Text,
@@ -17,7 +16,6 @@ import {
   ImageBackground,
   Alert,
 } from "react-native";
-import tailwind from 'tailwind-react-native-classnames'
 
 
 import { Dimensions } from "react-native";
@@ -46,11 +44,6 @@ const SelectCarScreen = (props) => {
   const [carColor, SetcarColor] = useState("");
   const [registrationNumber, SetRegistrationNumber] = useState("");
   const [insuranceNumber, SetInsuranceNumber] = useState("");
-  const [selected, setSelected] = useState(null);
-  const [buttonEnabled,setButtonEnabled] = useState(false)
-
-  
-
 
   //   function updateCars(value) {
   //     cars.push(value);
@@ -61,71 +54,51 @@ const SelectCarScreen = (props) => {
   //   }
 
   return (
-    // <View>
+    <View>
       <ScrollView
-        style={{ marginHorizontal: 0, alignContent: "center", marginTop:1 }}
+        style={{ marginHorizontal: 10, alignContent: "center" }}
         keyboardShouldPersistTaps='always'
       >
         <View
           id='PO Wise Quantity'
           style={{
-            // borderColor: Colors.primaryColor,
-            // borderWidth: 1,
-            height: '100%',
-            
+            borderColor: Colors.primaryColor,
+            borderWidth: 1,
+            height: 0.5 * screenHeight,
+            marginTop: 15,
+            borderRadius: 5,
             justifyContent: "center",
-            padding: 20,
-            paddinfLeft:10,
-            marginTop:0,
+            marginTop: 100,
+            borderRadius: 5,
+            justifyContent: "center",
+            padding: 40,
             backgroundColor: "white",
           }}
         >
-          {/* <View
+          <View
             id='PO Heading'
             style={{
               ...styles.openButton,
               backgroundColor: Colors.inactiveColor,
               alignContent: "center",
-              marginHorizontal: 0,
+              marginHorizontal: 10,
               borderRadius: 0,
-              marginTop:1,
             }}
           >
             <Text style={{ color: "white", alignSelf: "center" }}>
               Select Car
             </Text>
-          </View> */}
-        <View style={{flex:1,flexDirection:"row",marginTop:-15,marginBottom:10}}>
-        <Text style={tailwind`text-left pb-0 pl-0 pt-0 mt-0 text-2xl font-bold`}>Welcome,</Text>
-        <Text style={[tailwind`text-left pb-0 pl-0 pt-0 mt-0 text-2xl font-bold`,{color:"coral"}]}> Abhirup!</Text>
-        </View>
-
-        <Card containerStyle={{justifyContent:"center",width:"90%",height:180, alignItems:"left",alignSelf:"center",paddingBottom:30,marginTop:-70,
-            shadowColor: '#171717',
-            shadowOffset: {width: -2, height: 4},
-            shadowOpacity: 0.2,
-            shadowRadius: 3,
-        }}
-            title='HELLO WORLD'
-            // image={require('')}>
-            >
-        <Text style={[tailwind`text-center pb-0 pl-3 pt-0 mt-0 text-xl font-bold`,{marginTop:-5}]}>Select A Car</Text>
-
-
+          </View>
           <View
             id='DropDown'
-            style={{ marginHorizontal: 20, marginLeft: 45, paddingTop: 10,paddingBottom:-5 }}
+            style={{ marginHorizontal: 20, marginLeft: 45, paddingTop: 20 }}
           >
-            { <SelectDropdown
+            <SelectDropdown
               id='dropdownlist'
-              style={{ width: 100,borderColor:"blue",color:"blue",borderColor: Colors.primaryColor,
-              borderWidth: 1,borderRadius:8 }}
-            
+              style={{ width: 100 }}
               data={cars}
               onSelect={(selectedItem, index) => {
                 console.log(selectedItem, index);
-                setSelected(selectedItem);
-                setButtonEnabled(true);
               }}
               buttonTextAfterSelection={(selectedItem, index) => {
                 // text represented after item is selected
@@ -137,14 +110,9 @@ const SelectCarScreen = (props) => {
                 // if data array is an array of objects then return item.property to represent item in dropdown
                 return item;
               }}
-            /> }
-
-
-            
+            />
           </View>
-           
-
-          {/* <View id='AddNewCar'> */}
+          <View id='AddNewCar'>
             <View style={styles.centeredView}>
               <Modal
                 animationType='slide'
@@ -231,22 +199,14 @@ const SelectCarScreen = (props) => {
                 style={[styles.button, styles.buttonOpen]}
                 onPress={() => setModalVisible(true)}
               >
-                <Text style={[tailwind`text-white text-center pb-0 pl-0 pt-0 mt-0 text-base font-bold`,{marginTop:9}]}>Add a New Car +</Text>
+                <Text style={styles.textStyle}>Add car</Text>
               </Pressable>
             </View>
-          {/* </View> */}
-        </Card>
-        </View>
-        <View>
-                <TouchableOpacity
-                    style={[tailwind`py-3 m-3 mt-1 rounded-lg ${!buttonEnabled && 'bg-gray-400'}`,buttonEnabled && {backgroundColor:"olivedrab"}]}
-                    disabled={!buttonEnabled}
-                >
-                    <Text style={tailwind`text-center text-white text-xl`}>Choose {selected}</Text>
-                </TouchableOpacity>
+          </View>
+
         </View>
       </ScrollView>
-    
+    </View>
   );
 };
 
@@ -288,7 +248,7 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 30,
+    marginTop: 22,
   },
   modalView: {
     margin: 20,
@@ -306,16 +266,15 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    borderRadius: 8,
+    borderRadius: 2,
+    padding: 5,
     elevation: 2,
     width: 195,
-    height: 40,
-    marginTop: -10,
-    marginLeft:25
+    height: 50,
+    marginTop: 50,
   },
   buttonOpen: {
     backgroundColor: "#1a396e",
-    paddingTop:-10,
   },
   buttonClose: {
     backgroundColor: "#1a396e",

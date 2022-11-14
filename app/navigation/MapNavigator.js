@@ -10,6 +10,7 @@ const Stack = createStackNavigator();
 const MapNavigator = () => {
     return (
         <Stack.Navigator
+        initialRouteName='SelectCarScreen'
         screenOptions={{
             headerShown: false
         }}>

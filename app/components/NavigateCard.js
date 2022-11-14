@@ -4,7 +4,7 @@ import tailwind from 'tailwind-react-native-classnames'
 import Screen from './Screen'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 // import { GOOGLE_MAP_APIKEY } from '@env'
-import { setDestination } from '../redux/slices/navSlice'
+import { setDestination,setOrigin } from '../redux/slices/navSlice'
 import { useDispatch } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import NavFavourites from './NavFavourites'
@@ -38,17 +38,44 @@ const NavigateCard = () => {
       };
 
     return (
-        <Screen style={tailwind`bg-white flex-1`}>
-            {/* <View style={{flex:1,flexDirection:"row",height:1,marginBottom:0}}> */}
-            <Text style={tailwind`text-left pb-3 pl-5 pt-5 text-xl font-bold`}>Welcome, Abhirup</Text>
+        <Screen style={tailwind`bg-white flex-1 mt-0 pt-5`}>
+            <View style={{flex:1,flexDirection:"column",marginBottom:0,maxHeight:"42%"}}>
+            <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`}>Welcome, Abhirup!</Text>
             {isDateVisible &&
                 <Text 
-            style={[tailwind`text-left pb-1 pl-5 pt-0 font-bold`,{color:"indianred"}]}
+            style={{color:"indianred",marginLeft:"5%",marginBottom:"5%"}}
             isVisible={isDateVisible}>Booking ride for {chosenDate}</Text>
             }
-            {/* </View> */}
-            <View style={tailwind`border-t border-gray-100 flex-shrink relative z-20 bg-white`}>
+            </View>
+            <View style={[tailwind`border-t border-gray-100 flex-shrink relative z-20 bg-white`,{marginTop:-100}]}>
                 <View style={tailwind`bg-white pb-2`}>
+                    <GooglePlacesAutocomplete
+                        placeholder='Where do you want to ride from?'
+                        textInputProps={{
+                            placeholderTextColor: 'grey',
+                            returnKeyType: "search"
+                          }}
+                        nearbyPlacesAPI="GooglePlacesSearch"
+                        debounce={400}
+                        onPress={(data, details = null) => {
+                            dispatch(setOrigin({
+                                loaction: details.geometry.location,
+                                description: data.description
+                            }))
+                            dispatch(setDestination(null))
+                        }}
+                        minLength={2}
+                        fetchDetails={true}
+                        returnKeyType={"search"}
+                        onFail={error => console.error(error)}
+                        query={{
+                            key: GOOGLE_MAP_APIKEY,
+                            language: 'en',
+                        }}
+                        styles={{...toInputBoxStyles}}
+
+                        enablePoweredByContainer={false}
+                    />
                     <GooglePlacesAutocomplete
                         placeholder='Where are you going?'
                         textInputProps={{
@@ -71,15 +98,14 @@ const NavigateCard = () => {
                             key: GOOGLE_MAP_APIKEY,
                             language: 'en',
                         }}
-                        styles={toInputBoxStyles}
+                        styles={{...toInputBoxStyles,paddingTop:10}}
                         enablePoweredByContainer={false}
                     />
                 </View>
             </View>
-            <View style={tailwind`px-3 bg-white relative z-10 justify-between flex-1`}>
-                <NavFavourites />
+            <View style={tailwind`px-2 bg-white relative z-10 justify-between flex-1 mt-0`}>
 
-                <View style={tailwind`mt-3 flex-row justify-evenly py-3 pb-10 border-t border-gray-100`}>
+                <View style={tailwind`mt-0 flex-row justify-evenly py-3 mb-0 pb-10 border-t border-gray-100`}>
                     <TouchableOpacity
                         style={[tailwind`flex-row bg-white h-10 px-4 py-3 rounded-full border border-black`,{backgroundColor:"olivedrab"}]}
                         onPress={() => navigation.push('RideOptionsCard')}
@@ -127,7 +153,9 @@ const toInputBoxStyles = StyleSheet.create({
     container: {
         flex: 0,
         backgroundColor: '#fff',
-        paddingTop: 20,
+        paddingTop: 10,
+        position:"relative"
+        
     },
     textInput: {
         fontSize: 15,
@@ -138,7 +166,8 @@ const toInputBoxStyles = StyleSheet.create({
     },
     textInputContainer: {
         paddingHorizontal: 20,
-        paddingBottom: 0
+        paddingBottom: 0,
+        marginBottom:0
     },
     boxSimple: {
         backgroundColor: '#fff',
@@ -147,6 +176,6 @@ const toInputBoxStyles = StyleSheet.create({
         borderColor: '#000',
         padding: 1,
         margin: 2,
-        height:1,
+        height:10,
     },
 })

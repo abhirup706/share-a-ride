@@ -19,9 +19,9 @@ const data = [
     },
     {
         id: "Uber-XL-456",
-        title: "Abhijeet Vaghela",
-        gender: "Female",
-        rating: "4.5",
+        title: "Abhijeet V.",
+        gender: "Male",
+        rating: "4.2",
         since: "7",
         multiplier: 1.2,
         image: "https://links.papareact.com/5w8"
@@ -29,15 +29,18 @@ const data = [
     {
         id: "Uber-XL-911",
         title: "Alex John",
-        gender: "Female",
-        rating: "4.5",
+        gender: "Male",
+        rating: "4.7",
         since: "7",
         multiplier: 1.9,
         image: "https://links.papareact.com/5w8"
     },
     {
         id: "Uber-LUX-123",
-        title: "Manasi Barhan Purkar",
+        title: "Manasi B",
+        gender: "Female",
+        rating:"4.9",
+        since:"3",
         multiplier: 1.75,
         image: "https://links.papareact.com/7pf"
     },
@@ -67,7 +70,7 @@ const RideOptionsCard = () => {
     }
 
     return (
-        <Screen style={tailwind`bg-white h-full`}>
+        <Screen style={{height:"75%"}}>
             <View style={tailwind`items-center flex-row justify-center mb-3 mt-3`}>
                 <TouchableOpacity
                     style={{ left: 10, position: 'absolute', zIndex: 100 }}
@@ -81,7 +84,7 @@ const RideOptionsCard = () => {
                         style={tailwind`p-3`}
                     />
                 </TouchableOpacity>
-                <Text style={tailwind`text-center text-xl font-bold`}>Select a ride - {travelTimeInformation?.distance?.text}</Text>
+                <Text style={tailwind`text-center text-xl font-bold`}>Select a Host  |  {travelTimeInformation?.distance?.text}</Text>
             </View>
             <View style={tailwind`flex-1 mt-2`}>
                 <FlatList
@@ -124,7 +127,7 @@ const RideOptionsCard = () => {
                     disabled={!selected}
                     onPress={onChoose}
                 >
-                    <Text style={tailwind`text-center text-white text-xl`}>Choose {selected?.title}</Text>
+                    <Text style={tailwind`text-center text-white text-xl`}>Ride With {selected?.title}</Text>
                 </TouchableOpacity>
             </View>
         </Screen>

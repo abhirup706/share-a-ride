@@ -58,9 +58,9 @@ const HostDetails = ({ route}) => {
 
     return (
         <Root>
-        <Screen style={[tailwind`bg-white pl-3 pt-10 h-full`,{justifyContent:"center"}]}>
-        <View style={{marginBottom:40, paddingTop:10, position: 'absolute', top: 0, left: 0, right: 0, bottom: 100, justifyContent: 'center', alignItems: 'center'}}>
-        <Card containerStyle={{justifyContent:"center",width:"90%", alignItems:"left",alignSelf:"center",paddingBottom:20,
+        <Screen style={[tailwind`bg-white pl-3`,{justifyContent:"center",height:"90%",marginTop:0}]}>
+        <View style={{marginBottom:30, position: 'absolute', top: -20, left: 0, right: 0, bottom: 100, justifyContent: 'center', alignItems: 'center'}}>
+        <Card containerStyle={{justifyContent:"center",width:"90%", alignItems:"left",alignSelf:"center",paddingBottom:30,
             shadowColor: '#171717',
             shadowOffset: {width: -2, height: 4},
             shadowOpacity: 0.2,
@@ -70,7 +70,7 @@ const HostDetails = ({ route}) => {
             // image={require('')}>
             >
             <View style={{flex:1,flexDirection:"row"}}>
-                <View style={{marginTop:"15%"}}>
+                <View style={{marginTop:"13%"}}>
                 <Image 
                     
                     source={{
@@ -84,11 +84,11 @@ const HostDetails = ({ route}) => {
                         <Text style={tailwind`text-center text-black text-2xl font-bold`}>Rider Details</Text>
                     </View>
                     <View style={{flex:1,flexDirection:"row"}}>
-                        <Text style={tailwind`text-center text-black text-xl`}>Name: </Text>
-                        <Text style={tailwind`text-center text-black text-lg pl-5`}>{title1}</Text>
+                        <Text style={tailwind`text-center text-black text-lg font-bold`}>Name: </Text>
+                        <Text style={[tailwind`text-center text-black text-lg pl-5`,{paddingRight:10}]}>{title1}</Text>
                     </View>
                     <View style={{flex:1,flexDirection:"row", marginTop:-5}}>
-                        <Text style={tailwind`text-center text-black text-xl`}>Rating: </Text>
+                        <Text style={tailwind`text-center text-black text-lg font-bold`}>Rating: </Text>
                         <Text style={tailwind`text-center text-black text-lg pl-5`}>{rating}</Text>
                         <Icon
                         type="antdesign"
@@ -99,14 +99,14 @@ const HostDetails = ({ route}) => {
                     />
                     </View>
                     <View style={{flex:1,flexDirection:"row",marginTop:-5}}>
-                        <Text style={tailwind`text-center text-black text-xl`}>Gender: </Text>
+                        <Text style={tailwind`text-center text-black text-lg font-bold`}>Gender: </Text>
                         <Text style={tailwind`text-center text-black text-lg pl-2`}>{gender}</Text>
                     </View>
                     <View style={{flex:1,flexDirection:"row",marginTop:-5}}>
-                        <Text style={tailwind`text-center text-black text-xl`}>Host Since: </Text>
+                        <Text style={tailwind`text-center text-black text-lg font-bold`}>Host Since: </Text>
                         <Text style={tailwind`text-center text-black text-lg pl-2`}>{since} years</Text>
                     </View>
-                    <View style={{flex:1,flexDirection:"row",marginTop:0}}>
+                    <View style={{flex:1,flexDirection:"row",marginTop:5}}>
                     <TouchableOpacity
                         style={{
                             borderWidth:1,
@@ -182,7 +182,7 @@ const HostDetails = ({ route}) => {
         </View>
             {/* <View> */}
                 <TouchableOpacity
-                    style={[tailwind`bg-black py-3 mr-4 rounded-lg`,{backgroundColor:"olivedrab",position:"center",position: 'relative', top: 100, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}]}
+                    style={[tailwind`bg-black py-3 mt-0 mr-4 rounded-lg`,{backgroundColor:"olivedrab",position:"center",position: 'relative', top: 80, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}]}
                     onPress={onChoose}
                 
                 >

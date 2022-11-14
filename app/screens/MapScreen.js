@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text,Image } from 'react-native'
 import { useSelector } from 'react-redux'
 import tailwind from 'tailwind-react-native-classnames'
 import tw from 'tailwind-react-native-classnames'
@@ -14,45 +14,27 @@ import { Icon } from 'react-native-elements'
 const MapScreen = () => {
     const origin = useSelector(selectOrigin)
     const navigation = useNavigation()
+    
 
     useEffect(() => {
-        if(!origin) navigation.replace('Home')
+        if(!origin) navigation.replace('NavigateCard')
     }, [])
 
     return (
         <View style={tw`bg-white h-full`}>
-            <View style={tailwind`h-1/2 pb-0`}>
-            <SafeAreaView style={{alignItems:"center",justifyContent:"left", flexDirection:"row", backgroundColor:"lightgrey",height:80, paddingTop:40,paddingBottom:0}}>
-                <View style={{padding:0,paddingHorizontal:5,height:70,marginLeft:10,backgroundColor:"lightgrey",marginTop:0}}>
-                    <TouchableOpacity style={{alignItems:"left", backgroundColor:"lightgrey",padding:10,marginLeft:1,marginTop:0,borderRadius:15,width:50}}>
-                            <Icon 
-                                type="entypo"
-                                name="menu"
-                                color="black"
-                                size={30}
-                                
-                                style={{padding:1}}
-                            />
-                    </TouchableOpacity>
+            <View style={{height:"60%"}}>
+            <SafeAreaView style={{alignItems:"center",justifyContent:"left", flexDirection:"row", backgroundColor:"white",height:80, paddingTop:40,paddingBottom:10}}>
+                <View style={{padding:0,paddingHorizontal:5,paddingLeft:0, height:70,marginLeft:10,backgroundColor:"white",marginTop:0}}>
+                    <Image source={require('../assets/logo.png')} style={{height:70,width:200}}/>
+                    
                 </View>
-                <View style={{padding:7,paddingHorizontal:5,height:70}}>
-                    <TouchableOpacity style={{alignItems:"center", backgroundColor:"black",padding:10,borderRadius:15,width:80}}>
-                        <Text style={{color:"white"}}>Home</Text>
-                    </TouchableOpacity>
+                <View>
+                <Image source={require('../assets/rider.png')} style={{marginLeft:30, height:25,width:100}}/>
                 </View>
-                <View style={{padding:7,paddingHorizontal:5,height:70}}>
-                    <TouchableOpacity style={{alignItems:"center", backgroundColor:"black",padding:10,borderRadius:15,width:80}}>
-                        <Text style={{color:"white"}}>Settings</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={{padding:7,paddingHorizontal:5,height:70}}>
-                    <TouchableOpacity style={{alignItems:"center", backgroundColor:"black",padding:10,borderRadius:15,width:80}}>
-                        <Text style={{color:"white"}}>About Us</Text>
-                    </TouchableOpacity>
-                </View>
+
             </SafeAreaView>
             
-            <Map />
+            <Map/>
             </View>
             <View style={tailwind`h-1/2`}>
                 <MapNavigator />

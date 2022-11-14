@@ -15,7 +15,7 @@ const SuccessScreen = ({ route }) => {
         <Screen style={tw`bg-white h-full justify-center`}>
             <TouchableOpacity
                 style={[tailwind`bg-white p-3 rounded-full shadow-lg`, { top: Constants.statusBarHeight, left: 20, position: 'absolute', zIndex: 100 }]}
-                onPress={() => navigation.navigate("Home")}
+                onPress={() => navigation.navigate("WelcomeScreen")}
             >
                 <Icon
                     type="antdesign"

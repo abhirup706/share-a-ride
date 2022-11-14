@@ -39,10 +39,10 @@ const Map = () => {
     }
 
     return (
-        <View style={tailwind`flex-1 relative`}>
+        <View >
             <TouchableOpacity
                 style={[ tailwind`bg-white p-3 rounded-full shadow-lg`,{ top: Constants.statusBarHeight, left: 20, position: 'absolute', zIndex: 100 }]}
-                onPress={() => navigation.push("Home")}
+                onPress={() => navigation.push("NavigateCard")}
             >
                 <Icon
                     type="antdesign"
@@ -55,12 +55,18 @@ const Map = () => {
 
             <MapView
                 ref={mapRef}
-                style={tailwind`flex-1 relative z-10`}
+                style={{ height:"100%"}}
+                // initialRegion={{
+                //     latitude: origin?.loaction.lat,
+                //     longitude: origin?.loaction.lng,
+                //     latitudeDelta: 0.005,
+                //     longitudeDelta: 0.005,
+                // }}
                 initialRegion={{
-                    latitude: origin?.loaction.lat,
-                    longitude: origin?.loaction.lng,
-                    latitudeDelta: 0.005,
-                    longitudeDelta: 0.005,
+                    latitude:37.78825,
+                    longitude: -122.4324,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421
                 }}
                 mapType="mutedStandard"
             >

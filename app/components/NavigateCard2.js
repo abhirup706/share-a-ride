@@ -49,7 +49,7 @@ const NavigateCard2 = () => {
     return (
         <Screen style={tailwind`bg-white flex-1 mt-0 pt-5`}>
             <View style={{flex:1,flexDirection:"column",marginBottom:0,maxHeight:"42%"}}>
-            <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`}>Welcome, Abhirup!</Text>
+            <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`}>Welcome!</Text>
             {isDateVisible &&
                 <Text 
             style={{color:"indianred",marginLeft:"5%",marginBottom:"1%"}}

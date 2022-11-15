@@ -40,7 +40,7 @@ const WelcomeScreen = (props) => {
     return (
       <View style={{backgroundColor:"white"}}>
         <View style={{marginTop:"20%",marginLeft:"5%"}}>
-        <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-4xl font-bold`}>Welcome,</Text>
+        <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-4xl font-bold`}>Welcome!</Text>
         <Text style={[tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-4xl font-bold`,{color:"coral"}]}>Abhirup!</Text>
         </View>
         {/* <ImageBackground source={require('../assets/background.png')} style={styles.image}> */}

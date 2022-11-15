@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as DocumentPicker from 'expo-document-picker';
-import * as ImagePicker from 'expo-image-picker';
 import RNPickerSelect from "react-native-picker-select";  
 import tailwind from 'tailwind-react-native-classnames';
 
@@ -16,7 +15,6 @@ import {
 } from "react-native";
 
 
-const image = { uri: "https://media2.giphy.com/media/yAjIXTFgZtfn6ix3Wt/giphy.gif?cid=790b7611209a359572fe7cff6e2a2ffe67295a71f36d3072&rid=giphy.gif&ct=g" };
 import Colors from "../constants/colors"
 import { Dimensions } from 'react-native';
 
@@ -29,8 +27,11 @@ const UploadScreen = (props) => {
         console.log(result.uri);
         console.log(result);
         alert("Selected File: "+result.name)
+        SetDocument(result.name)
         return result.name
     }
+
+    const [document, SetDocument] = useState();
 
     const screenHeight = Dimensions.get('window').height
     const [email, SetEmail] = useState("")
@@ -38,7 +39,7 @@ const UploadScreen = (props) => {
     return (
         <View>
         <ImageBackground source={require('../assets/background.png')} style={styles.image}>
-        <ScrollView style={{marginHorizontal: 10, alignContent: "center",marginTop:"15%"}}
+        <ScrollView style={{marginHorizontal: "5%", alignContent: "center",marginTop:"15%"}}
             keyboardShouldPersistTaps="always"
         >
 
@@ -67,7 +68,10 @@ const UploadScreen = (props) => {
 
                    </TouchableHighlight>
                    
-              </View>       
+              </View>  
+              <View>
+                <Text>{document}</Text>
+                </View>     
 
               <View id="idType" style={{...styles.textInput,margin:20}}>
                      <RNPickerSelect
@@ -87,7 +91,7 @@ const UploadScreen = (props) => {
                 <View id="idNumber" style={{...styles.textInput}}>
                     <TextInput 
                         placeholder="Enter Document Number"
-                        style={{marginLeft: 2}}
+                        style={{marginLeft: "2%"}}
                         placeholderTextColor={"grey"}
                         value={email}
                         onChangeText = {(newEmail) => {
@@ -98,7 +102,7 @@ const UploadScreen = (props) => {
                     
                 </View>
                 <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "olivedrab", marginTop: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "olivedrab", marginTop: "5%", marginHorizontal:"4%"}}
                         onPress={() => {
                             console.log("Login button Pressed")
                             props.navigation.navigate('VerificationScreen')
@@ -110,7 +114,7 @@ const UploadScreen = (props) => {
                    </TouchableHighlight>
 
                    <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "firebrick", marginTop: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "firebrick", marginTop: "5%", marginHorizontal:"4%"}}
                         onPress={() => {
                             console.log("Signup button Pressed")
                             props.navigation.navigate('SignupScreen')
@@ -136,9 +140,9 @@ const styles = StyleSheet.create({
        
         fontWeight:"bold", 
         justifyContent: 'center', 
-        marginVertical: 10, 
-        marginHorizontal:10,
-        height: 50,  
+        marginVertical: "3%", 
+        marginHorizontal:"3%",
+        height: "12%",  
         borderColor: Colors.inactiveColor, 
         borderWidth:1, 
         borderRadius: 5,

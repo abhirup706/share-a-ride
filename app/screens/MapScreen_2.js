@@ -9,36 +9,34 @@ import { selectOrigin } from '../redux/slices/navSlice'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 
-const MapScreen = () => {
+const MapScreen_2 = () => {
     const origin = useSelector(selectOrigin)
     const navigation = useNavigation()
-    
 
     useEffect(() => {
         if(!origin) navigation.replace('NavigateCard')
     }, [])
 
     return (
-        <View style={tailwind`bg-white h-full`}>
+        <View>
             <View style={{height:"60%"}}>
-            <SafeAreaView style={{alignItems:"center",justifyContent:"left", flexDirection:"row", backgroundColor:"white",height:80, paddingTop:40,paddingBottom:10}}>
+                <SafeAreaView style={{alignItems:"center",justifyContent:"center",backgroundColor:"white",height:80, paddingTop:40,paddingBottom:10}}>
                 <View style={{height:"40%",marginLeft:"5%",marginBottom:"20%", backgroundColor:"white"}}>
                     <Image source={require('../assets/logo.png')} style={{height:70,width:200}}/>
-                    
                 </View>
                 <View style={{height:"40%",marginLeft:"5%",marginBottom:"10%", backgroundColor:"white"}}>
                 <Image source={require('../assets/rider.png')} style={{marginLeft:"10%", height:25,width:100}}/>
                 </View>
-
-            </SafeAreaView>
+                </SafeAreaView>
+                <Map/>
+                <View>
+                    <MapNavigator />
+                </View>
+            </View>
             
-            <Map/>
-            </View>
-            <View style={tailwind`h-1/2`}>
-                <MapNavigator />
-            </View>
+
         </View>
     )
 }
 
-export default MapScreen
+export default MapScreen_2

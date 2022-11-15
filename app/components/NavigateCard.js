@@ -7,9 +7,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { setDestination,setOrigin } from '../redux/slices/navSlice'
 import { useDispatch } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
-import NavFavourites from './NavFavourites'
 import { Icon } from 'react-native-elements'
-import DatePicker from 'react-native-date-picker'
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from 'moment';
 
@@ -39,7 +37,7 @@ const NavigateCard = () => {
 
     return (
         <Screen style={tailwind`bg-white flex-1 mt-0 pt-5`}>
-            <View style={{flex:1,flexDirection:"column",marginBottom:0,maxHeight:"42%"}}>
+            <View style={{flex:1,flexDirection:"column",maxHeight:"42%"}}>
             <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`}>Welcome, Abhirup!</Text>
             {isDateVisible &&
                 <Text 
@@ -47,7 +45,7 @@ const NavigateCard = () => {
             isVisible={isDateVisible}>Booking ride for {chosenDate}</Text>
             }
             </View>
-            <View style={[tailwind`border-t border-gray-100 flex-shrink relative z-20 bg-white`,{marginTop:-100}]}>
+            <View style={[tailwind`border-t border-gray-100 flex-shrink relative z-20 bg-white`,{marginTop:"-20%"}]}>
                 <View style={tailwind`bg-white pb-2`}>
                     <GooglePlacesAutocomplete
                         placeholder='Where do you want to ride from?'
@@ -98,7 +96,7 @@ const NavigateCard = () => {
                             key: GOOGLE_MAP_APIKEY,
                             language: 'en',
                         }}
-                        styles={{...toInputBoxStyles,paddingTop:10}}
+                        styles={{...toInputBoxStyles,paddingTop:"10%"}}
                         enablePoweredByContainer={false}
                     />
                 </View>

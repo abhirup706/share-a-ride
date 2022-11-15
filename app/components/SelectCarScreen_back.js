@@ -23,7 +23,7 @@ import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
 
 
-const SelectCarScreen = (props) => {
+const SelectCarScreen_back = (props) => {
   const screenHeight = Dimensions.get("window").height;
   const screenWidth = Dimensions.get("window").width;
   const [cars, SetCars] = useState([
@@ -290,4 +290,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default SelectCarScreen;
+export default SelectCarScreen_back;

@@ -11,9 +11,9 @@ import { Root, Popup } from 'react-native-popup-confirm-toast'
 
 const SEARCH_CHARGE_RATE = 1.5
 
-const HostDetails = ({ route}) => {
+const RiderDetails = ({ route}) => {
 
-    const { title1,multiplier1 ,rating,gender,since,vehicle_name,vehicle_color} = route.params;
+    const { title1,multiplier1 ,rating,gender,since,vehicle_name,vehicle_color,passengers} = route.params;
     const navigation = useNavigation()
     // const [selected, setSelected] = useState(null)
     const travelTimeInformation = useSelector(selectTravelTimeInformation)
@@ -30,7 +30,7 @@ const HostDetails = ({ route}) => {
 
     const onChoose = () =>{
         console.log(title1)
-        navigation.push('SuccessScreen', { data: {vehicle_name: vehicle_name, vehicle_color:vehicle_color, title: title1,multiplier : multiplier1, distance: travelTimeInformation?.distance?.text, time: travelTimeInformation?.duration.text, price: travelConst(multiplier1)} })
+        navigation.push('SuccessScreenProvider', { data: {vehicle_name: vehicle_name, vehicle_color:vehicle_color, title: title1,multiplier : multiplier1, distance: travelTimeInformation?.distance?.text, time: travelTimeInformation?.duration.text, price: travelConst(multiplier1),passengers: passengers} })
     }
     
 
@@ -81,7 +81,7 @@ const HostDetails = ({ route}) => {
                 </View>
                 <View style={{marginLeft:15}}>
                     <View >
-                        <Text style={tailwind`text-center text-black text-2xl font-bold`}>Provider Details</Text>
+                        <Text style={tailwind`text-center text-black text-2xl font-bold`}>Rider Details</Text>
                     </View>
                     <View style={{flex:1,flexDirection:"row"}}>
                         <Text style={tailwind`text-center text-black text-lg font-bold`}>Name: </Text>
@@ -103,8 +103,8 @@ const HostDetails = ({ route}) => {
                         <Text style={tailwind`text-center text-black text-lg pl-2`}>{gender}</Text>
                     </View>
                     <View style={{flex:1,flexDirection:"row",marginTop:-5}}>
-                        <Text style={tailwind`text-center text-black text-lg font-bold`}>Host Since: </Text>
-                        <Text style={tailwind`text-center text-black text-lg pl-2`}>{since} years</Text>
+                        <Text style={tailwind`text-center text-black text-lg font-bold`}>Passengers: </Text>
+                        <Text style={tailwind`text-center text-black text-lg pl-2`}>{passengers}</Text>
                     </View>
                     <View style={{flex:1,flexDirection:"row",marginTop:5}}>
                     <TouchableOpacity
@@ -186,7 +186,7 @@ const HostDetails = ({ route}) => {
                     onPress={onChoose}
                 
                 >
-                    <Text style={tailwind`text-center text-white text-xl`}>Continue</Text>
+                    <Text style={tailwind`text-center text-white text-xl`}>Start Carpooling</Text>
                 </TouchableOpacity>
             {/* </View> */}
 
@@ -195,7 +195,7 @@ const HostDetails = ({ route}) => {
     )
 }
 
-export default HostDetails
+export default RiderDetails
 
 const styles = StyleSheet.create({
     image: {

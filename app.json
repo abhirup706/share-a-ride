@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "uber-clone",
+    "name": "Share-A-Ride",
     "userInterfaceStyle": "automatic",
-    "slug": "uber-clone",
+    "slug": "share-a-ride",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -18,18 +18,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abhirup706.share-a-ride"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/logo.png"
     },
-    "description": "Uber clone in react native. \n\n- Navigation\n- Redux, \n- Tailwind CSS\n- Google Autocomplete\n- Google map integration with price and distance matrix\n- and a lot more",
-    "githubUrl": "https://github.com/coderkhalide/uber-clone"
+    "description": "A carpooling platform developed for the people commuting to and from the University of Texas at Dallas",
+    "githubUrl": "https://github.com/abhirup706/share-a-ride"
   }
 }

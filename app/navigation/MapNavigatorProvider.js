@@ -1,8 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import NavigateCard from '../components/NavigateCard';
-import RideOptionsCard from '../components/RideOptionsCard';
-import HostDetails from '../components/HostDetails';
 import SelectCarScreen from '../components/SelectCarScreen';
 import NavigateCard2 from '../components/NavigateCard2';
 import RideOptionsCard2 from '../components/RideOptionsCard2';
@@ -10,17 +7,18 @@ import RiderDetails from '../components/RiderDetails';
 
 const Stack = createStackNavigator();
 
-const MapNavigator = () => {
+const MapNavigatorProvider = () => {
     return (
         <Stack.Navigator
         screenOptions={{
             headerShown: false
         }}>
-            <Stack.Screen name="NavigateCard" component={NavigateCard} />
-            <Stack.Screen name="HostDetails" component={HostDetails} />
-            <Stack.Screen name="RideOptionsCard" component={RideOptionsCard} />
+            <Stack.Screen name="SelectCarScreen" component={SelectCarScreen} />
+            <Stack.Screen name="NavigateCard2" component={NavigateCard2} />
+            <Stack.Screen name="RideOptionsCard2" component={RideOptionsCard2}/>
+            <Stack.Screen name="RiderDetails" component={RiderDetails}/>
         </Stack.Navigator>
     );
 }
 
-export default MapNavigator;
+export default MapNavigatorProvider;

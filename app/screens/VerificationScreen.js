@@ -41,7 +41,7 @@ const VerificationScreen = (props) => {
     return (
       <View>
         <ImageBackground source={require('../assets/background.png')} style={styles.image}>
-        <ScrollView style={{marginHorizontal: 10, alignContent: "center",marginTop:"15%"}}
+        <ScrollView style={{marginHorizontal: "3%", alignContent: "center",marginTop:"15%"}}
             keyboardShouldPersistTaps="always"
         >
 
@@ -83,7 +83,7 @@ const VerificationScreen = (props) => {
 
                                 
                    <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "olivedrab", marginTop: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "olivedrab", marginTop: "10%", marginHorizontal:"4%"}}
                         onPress={() => {
                             console.log("Verified button Pressed")
                             props.navigation.navigate('VerifiedScreen')
@@ -95,7 +95,7 @@ const VerificationScreen = (props) => {
                    </TouchableHighlight>
 
                    <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "firebrick", marginTop: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "firebrick", marginTop: "7%", marginHorizontal:"4%"}}
                         onPress={() => {
                             console.log("Signup button Pressed")
                             props.navigation.navigate('LoginScreen')
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
        
         fontWeight:"bold", 
         justifyContent: 'center', 
-        marginVertical: 10, 
+        marginVertical: "5%", 
         marginHorizontal:10,
         height: 50,  
         borderColor: Colors.inactiveColor, 
@@ -139,18 +139,18 @@ const styles = StyleSheet.create({
     openButton: {
             backgroundColor: Colors.primaryColor,
             borderRadius: 10,
-            padding: 10,
-            elevation: 10,
+            padding: "5%",
+            elevation: 3,
  
           },
-          root: {flex: 1, padding: 20},
+          root: {flex: 1, padding: "5%"},
           title: {textAlign: 'center', fontSize: 15,marginTop:20,marginHorizontal:10},
-          codeFieldRoot: {marginTop: 20},
+          codeFieldRoot: {marginTop: "10%"},
           cell: {
             width: 40,
             height: 40,
-            lineHeight: 38,
             fontSize: 24,
+            lineHeight:38,
             borderWidth: 2,
             borderColor: '#00000030',
             textAlign: 'center',

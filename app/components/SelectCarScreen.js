@@ -5,6 +5,9 @@ import Colors from "../constants/colors";
 import SelectDropdown from "react-native-select-dropdown";
 import { Modal, Pressable } from "react-native";
 import { Card } from "react-native-elements";
+import { useNavigation } from '@react-navigation/native'
+
+
 import {
   StyleSheet,
   Text,
@@ -40,6 +43,8 @@ const SelectCarScreen = (props) => {
     newArr.push(param);
     SetCars(newArr);
   };
+
+  const navigation = useNavigation();
   // const cars = ["Accord", "Civic", "Camry"];
   const [modalVisible, setModalVisible] = useState(false);
   const [carModel, SetcarModel] = useState("");
@@ -157,7 +162,9 @@ const SelectCarScreen = (props) => {
               >
                 <View style={styles.centeredView}>
                   <View style={styles.modalView}>
-                    <Text style={styles.modalText}>Add New Car</Text>
+                  
+                    <Text style={[tailwind`text-center text-2xl font-bold`,{color:"black"}]}>Add a new <Text style={[tailwind`text-center text-2xl font-bold`,{color:"coral"}]}>Car</Text></Text>
+
 
                     <View id='NameOfCar' style={{ ...styles.textInput }}>
                       <TextInput
@@ -213,9 +220,17 @@ const SelectCarScreen = (props) => {
                         }}
                       />
                     </View>
-
-                    <Pressable
-                      style={[styles.button, styles.buttonClose]}
+                    <View style={{ marginTop:"10%",marginRight:"8%"}}>
+                    <TouchableOpacity
+                      style={[styles.button, styles.buttonClose,{marginTop:"5%",paddingTop:"5%",backgroundColor:"firebrick"}]}
+                      onPress={() => {
+                        setModalVisible(!modalVisible);
+                      }}
+                    >
+                      <Text style={styles.textStyle}>Back</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={[styles.button, styles.buttonClose,{marginTop:"5%",paddingTop:"5%",backgroundColor:"olivedrab"}]}
                       onPress={() => {
                         setModalVisible(!modalVisible);
                         console.log(carModel);
@@ -223,7 +238,8 @@ const SelectCarScreen = (props) => {
                       }}
                     >
                       <Text style={styles.textStyle}>Submit</Text>
-                    </Pressable>
+                    </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
               </Modal>
@@ -241,6 +257,8 @@ const SelectCarScreen = (props) => {
                 <TouchableOpacity
                     style={[tailwind`py-3 m-3 mt-1 rounded-lg ${!buttonEnabled && 'bg-gray-400'}`,buttonEnabled && {backgroundColor:"olivedrab"}]}
                     disabled={!buttonEnabled}
+                    onPress={() => navigation.push('NavigateCard2')}
+
                 >
                     <Text style={tailwind`text-center text-white text-xl`}>Choose {selected}</Text>
                 </TouchableOpacity>
@@ -255,16 +273,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   textInput: {
-    fontWeight: "bold",
-    justifyContent: "center",
-    marginVertical: 10,
-    marginHorizontal: 10,
-    height: 50,
-    borderColor: Colors.inactiveColor,
-    borderWidth: 3,
+       
+    fontWeight:"bold", 
+    justifyContent: 'center', 
+    marginVertical: "2%", 
+    marginHorizontal: "2%",
+    height: 30,  
+    width: 200,
+    borderColor: Colors.inactiveColor, 
+    borderWidth:1, 
     borderRadius: 5,
-    padding: 5,
-  },
+    padding:"3%",
+    backgroundColor:"#ededed"
+},
   image: {
     justifyContent: "center",
     width: "100%",

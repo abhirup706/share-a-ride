@@ -40,11 +40,11 @@ const VerifiedScreen = (props) => {
     return (
       <View>
         <ImageBackground source={require('../assets/background.png')} style={styles.image}>
-        <ScrollView style={{marginHorizontal: 10, alignContent: "center",marginTop:"15%"}}
+        <ScrollView style={{marginHorizontal: "3%", alignContent: "center",marginTop:"15%"}}
             keyboardShouldPersistTaps="always"
         >
 
-<View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.6*screenHeight, marginTop: 100, borderRadius: 5, justifyContent: "center",padding:40, backgroundColor:"white"}}>
+<View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.6*screenHeight, marginTop: "25%", borderRadius: 5, justifyContent: "center",padding:"10%", backgroundColor:"white"}}>
                     
 
                     <View style={{flex:1,flexDirection:"row",marginTop:"10%",justifyContent:"center"}}>
@@ -59,7 +59,7 @@ const VerifiedScreen = (props) => {
                 <Image source={Verified} style={styles.verified}/>
                    <Text style={{...styles.textStyle,color:"green",fontSize:20,flex:1}}>Account Successfully Verified!</Text>             
                    <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "olivedrab", marginTop: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "olivedrab", marginTop: "5%", marginHorizontal:"5%"}}
                         onPress={() => {
                             console.log("Login button Pressed")
                             props.navigation.navigate('WelcomeScreen')
@@ -71,7 +71,7 @@ const VerifiedScreen = (props) => {
                    </TouchableHighlight>
 
                    <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "firebrick", marginTop: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "firebrick", marginTop: "5%", marginHorizontal:"5%"}}
                         onPress={() => {
                             console.log("Signup button Pressed")
                             props.navigation.navigate('LoginScreen')

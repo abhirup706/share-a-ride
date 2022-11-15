@@ -12,7 +12,7 @@ import {
 
 
 
-import Colors from "../constants/colors"
+import Colors from "../constants/colors";
 import { Dimensions } from 'react-native';
 import Logo from '../assets/logo.png'
 
@@ -44,11 +44,11 @@ const WelcomeScreen = (props) => {
         <Text style={[tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-4xl font-bold`,{color:"coral"}]}>Abhirup!</Text>
         </View>
         {/* <ImageBackground source={require('../assets/background.png')} style={styles.image}> */}
-        <ScrollView style={{marginHorizontal: 10, alignContent: "center",backgroundColor:"white"}}
+        <ScrollView style={{marginHorizontal: "3%", alignContent: "center",backgroundColor:"white"}}
             keyboardShouldPersistTaps="always"
         >
 
-      <View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 0, height: 0.5*screenHeight, marginTop: 50, borderRadius: 5, justifyContent: "center",padding:0,paddingTop:50, marginTop:"10%", marginBottom:"100%", backgroundColor:"white"}}>
+      <View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 0, height: 0.5*screenHeight, marginTop: "10%", borderRadius: 5, justifyContent: "center",paddingTop:"20%", marginTop:"10%", marginBottom:"100%", backgroundColor:"white"}}>
                     
 
       
@@ -62,7 +62,7 @@ const WelcomeScreen = (props) => {
                   <View style={{marginTop:"2%"}}>
                   <Text style={[tailwind`text-center pb-0 pl-0 pt-1 mb-2 text-lg`,{color:"black"}]}>Share a ride as a passenger</Text>  
                    <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "coral", marginBottom: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "coral", marginBottom: "5%", marginHorizontal:10}}
                         onPress={() => {
                             console.log("Login button Pressed")
                             props.navigation.navigate('MapScreen')
@@ -80,10 +80,10 @@ const WelcomeScreen = (props) => {
                     <View>
                     <Text style={[tailwind`text-center pb-0 pl-0 pt-1 mb-2 text-lg`,{color:"black"}]}>Share a ride as a host</Text> 
                     <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "cornflowerblue", marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "cornflowerblue", marginHorizontal:"5%"}}
                         onPress={() => {
-                            console.log("Signup button Pressed")
-                            props.navigation.navigate('SelectCarScreen')
+                            console.log("Provider button Pressed")
+                            props.navigation.navigate('MapScreenProvider')
                         }}
                    >
                     

@@ -4,18 +4,18 @@ import { View,Image } from 'react-native'
 import { useSelector } from 'react-redux'
 import tailwind from 'tailwind-react-native-classnames'
 import Map from '../components/Map'
-import MapNavigator from '../navigation/MapNavigator'
+import MapNavigatorProvider from '../navigation/MapNavigatorProvider'
 import { selectOrigin } from '../redux/slices/navSlice'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 
-const MapScreen = () => {
+const MapScreenProvider = () => {
     const origin = useSelector(selectOrigin)
     const navigation = useNavigation()
     
 
     useEffect(() => {
-        if(!origin) navigation.replace('NavigateCard')
+        if(!origin) navigation.replace('SelectCarScreen')
     }, [])
 
     return (
@@ -27,7 +27,7 @@ const MapScreen = () => {
                     
                 </View>
                 <View style={{height:"40%",marginLeft:"5%",marginBottom:"10%", backgroundColor:"white"}}>
-                <Image source={require('../assets/rider.png')} style={{marginLeft:"10%", height:25,width:100}}/>
+                <Image source={require('../assets/provider.png')} style={{marginLeft:"10%", height:25,width:100}}/>
                 </View>
 
             </SafeAreaView>
@@ -35,10 +35,10 @@ const MapScreen = () => {
             <Map/>
             </View>
             <View style={tailwind`h-1/2`}>
-                <MapNavigator />
+                <MapNavigatorProvider />
             </View>
         </View>
     )
 }
 
-export default MapScreen
+export default MapScreenProvider

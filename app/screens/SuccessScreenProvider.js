@@ -7,7 +7,7 @@ import tailwind from 'tailwind-react-native-classnames'
 import { Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
 
-const SuccessScreen = ({ route }) => {
+const SuccessScreenProvider = ({ route }) => {
     const { data } = route.params;
     const navigation = useNavigation()
 
@@ -43,10 +43,9 @@ const SuccessScreen = ({ route }) => {
                     />
                 </View>
                 <View style={tw`p-5 text-center self-center`}>
-                    <Text style={tw`font-bold text-lg mb-3 text-center`}>Your host {data?.title} is on the way</Text>
-                    <Text style={tw`text-base text-center`}>Vehicle Name: {data?.vehicle_name}</Text>
-                    <Text style={tw`text-base text-center`}>Vehicle Color: {data?.vehicle_color}</Text>
+                    <Text style={tw`font-bold text-lg mb-3 text-center`}>{data?.title} is waiting for you</Text>
                     <Text style={tw`text-base text-center`}>Ride cost: ${data?.price}</Text>
+                    <Text style={tw`text-base text-center`}>Passengers: {data?.passengers}</Text>
                     <Text style={tw`text-base text-center`}>Estimated time: {data?.time}</Text>
                     <Text style={tw`text-base text-center`}>Estimated distance: {data?.distance}</Text>
                 </View>
@@ -66,7 +65,7 @@ const SuccessScreen = ({ route }) => {
                             onPress={()=>openDialScreen()}
                     >
                         <View style={{flex:1,flexDirection:"row"}}>
-                        <Text style={[tw`text-base text-center text-white`,{marginTop:1}]}>Call Host</Text><Icon name="phone" type="fontawesome" size={30} style={{marginBottom:5,marginLeft:5}} color="white" />
+                        <Text style={[tw`text-base text-center text-white`,{marginTop:1}]}>Call Rider</Text><Icon name="phone" type="fontawesome" size={30} style={{marginBottom:5,marginLeft:5}} color="white" />
                         </View>
                     </TouchableOpacity>
                     
@@ -87,7 +86,7 @@ const SuccessScreen = ({ route }) => {
                             onPress={()=>openMessageApp()}
                     >
                         <View style={{flex:1,flexDirection:"row"}}>
-                        <Text style={tw`text-base text-center text-white`}>Message Host </Text><Icon name="chat-bubble" type="materialicons" size={25} color="white" />
+                        <Text style={tw`text-base text-center text-white`}>Message Rider </Text><Icon name="chat-bubble" type="materialicons" size={25} color="white" />
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -96,4 +95,4 @@ const SuccessScreen = ({ route }) => {
     );
 }
 
-export default SuccessScreen;
+export default SuccessScreenProvider;

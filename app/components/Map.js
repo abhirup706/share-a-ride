@@ -5,12 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import tailwind from 'tailwind-react-native-classnames'
 import { selectDestination, selectOrigin, setTravelTimeInformation } from '../redux/slices/navSlice'
 import MapViewDirections from 'react-native-maps-directions'
-// import { GOOGLE_MAP_APIKEY } from '@env'
 import { Icon } from 'react-native-elements'
 import Constants from 'expo-constants'
 import { useNavigation } from '@react-navigation/native'
 
-//  const GOOGLE_MAP_APIKEY = 'AIzaSyA2NZvrKgSRaGgu2FW3SMPPAAfwBtAGKgo'
 const GOOGLE_MAP_APIKEY = "AIzaSyA2NZvrKgSRaGgu2FW3SMPPAAfwBtAGKgo"
 const Map = () => {
     const origin = useSelector(selectOrigin)
@@ -42,7 +40,7 @@ const Map = () => {
         <View >
             <TouchableOpacity
                 style={[ tailwind`bg-white p-3 rounded-full shadow-lg`,{ top: Constants.statusBarHeight, left: 20, position: 'absolute', zIndex: 100 }]}
-                onPress={() => navigation.push("NavigateCard")}
+                onPress={() => navigation.push("WelcomeScreen")}
             >
                 <Icon
                     type="antdesign"

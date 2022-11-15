@@ -12,6 +12,8 @@ import VerifiedScreen from '../screens/VerifiedScreen';
 import TextInputModal from '../screens/TextInputModal';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import SelectCarScreen from '../components/SelectCarScreen';
+import MapScreenProvider from '../screens/MapScreenProvider';
+import SuccessScreenProvider from '../screens/SuccessScreenProvider';
 
 const Stack = createStackNavigator();
 
@@ -31,7 +33,10 @@ const MainNavigator = () => {
             <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
             <Stack.Screen name="MapScreen" component={MapScreen} />
+            <Stack.Screen name="MapScreenProvider" component={MapScreenProvider} />
             <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
+            <Stack.Screen name="SuccessScreenProvider" component={SuccessScreenProvider} />
+            
         </Stack.Navigator>
     );
 }

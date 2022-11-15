@@ -13,7 +13,6 @@ import tailwind from 'tailwind-react-native-classnames';
 import Logo from '../assets/logo.png';
 
 
-const image = { uri: "https://media2.giphy.com/media/yAjIXTFgZtfn6ix3Wt/giphy.gif?cid=790b7611209a359572fe7cff6e2a2ffe67295a71f36d3072&rid=giphy.gif&ct=g" };
 import Colors from "../constants/colors";
 import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -48,7 +47,7 @@ const LoginScreen = (props) => {
               <View id="username" style={{...styles.textInput}}>
                     <TextInput
                         placeholder="Username"
-                        style={{marginLeft: 2}}
+                        style={{marginLeft: "5%"}}
                         placeholderTextColor={"grey"}
                         value={userName}
                         onChangeText = {(newUsername) => {
@@ -63,8 +62,7 @@ const LoginScreen = (props) => {
                 <View id="password" style={{...styles.textInput}}>
                     <TextInput
                         placeholder="Password"
-                        keyboardType="password"
-                        style={{marginLeft: 2}}
+                        style={{marginLeft: "5%"}}
                         placeholderTextColor={"grey"}
                         secureTextEntry={true}
                         value={password.toString()}

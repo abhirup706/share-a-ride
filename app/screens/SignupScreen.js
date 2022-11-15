@@ -9,6 +9,7 @@ import {
   ImageBackground
 } from "react-native";
 import tailwind from 'tailwind-react-native-classnames';
+let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/gm;
 
 
 const image = { uri: "https://media2.giphy.com/media/yAjIXTFgZtfn6ix3Wt/giphy.gif?cid=790b7611209a359572fe7cff6e2a2ffe67295a71f36d3072&rid=giphy.gif&ct=g" };
@@ -35,8 +36,8 @@ const SignupScreen = (props) => {
                     
                     <View style={{flex:1,flexDirection:"row",marginTop:"7%",justifyContent:"center"}}>
                     {/* <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10,borderRadius:0}}> */}
-                    <Text style={[tailwind`text-center mb-5 pt-10 text-2xl font-bold`,{color:"black",marginTop:"-25%"}]}>Signup </Text>
-                    <Text style={[tailwind`text-center mb-5 pt-10 text-2xl font-bold`,{color:"coral",marginTop:"-25%"}]}> Today</Text>
+                    <Text style={[tailwind`text-center mb-5 pt-10 text-2xl font-bold`,{color:"black",marginTop:"-30%"}]}>Signup </Text>
+                    <Text style={[tailwind`text-center mb-5 pt-10 text-2xl font-bold`,{color:"coral",marginTop:"-30%"}]}> Today</Text>
                     {/* </View> */}
                     </View>
 
@@ -64,6 +65,13 @@ const SignupScreen = (props) => {
                         onChangeText = {(newEmail) => {
                             SetEmail(newEmail)
                          }}
+                        //  onBlur={() => {
+                  
+                        //     if (reg.test(email) !== true) {
+                        //       alert("Please enter a valid email");
+                        //       return;
+                        //     }
+                        //   }}
                     />
                 </View>
              
@@ -73,7 +81,6 @@ const SignupScreen = (props) => {
                 <View id="password" style={{...styles.textInput}}>
                     <TextInput 
                         placeholder="Enter Password"
-                        keyboardType="password"
                         secureTextEntry={true}
                         style={{marginLeft: 2}}
                         placeholderTextColor={"grey"}
@@ -87,7 +94,6 @@ const SignupScreen = (props) => {
                 <View id="confirmpassword" style={{...styles.textInput}}>
                     <TextInput 
                         placeholder="Re-enter Password"
-                        keyboardType="password"
                         secureTextEntry={true}
                         style={{marginLeft: 2}}
                         placeholderTextColor={"grey"}
@@ -95,6 +101,7 @@ const SignupScreen = (props) => {
                         onChangeText = {(newRePassword) => {
                             SetRePassword(newRePassword)
                         }}
+                        
                     />
                 </View>
    
@@ -103,7 +110,22 @@ const SignupScreen = (props) => {
                         style={{ ...styles.openButton, backgroundColor: "olivedrab", marginTop: 15, marginHorizontal:10}}
                         onPress={() => {
                             console.log("Login button Pressed")
-                            props.navigation.navigate('UploadScreen')
+                            if (reg.test(email) !== true) {
+                                alert("Please enter a valid email");
+                                return;
+                              } else if (
+                                !rePassword.trim() ||
+                                !password.trim() ||
+                                !email.trim() ||
+                                !userName.trim()
+                              ) {
+                                alert("Please fill all the details");
+                                return;
+                              } else if (password == rePassword) {
+                                props.navigation.navigate("UploadScreen");
+                              } else {
+                                alert("Passwords don't match");
+                              }
                         }}
                    >
                     
@@ -139,13 +161,13 @@ const styles = StyleSheet.create({
        
         fontWeight:"bold", 
         justifyContent: 'center', 
-        marginVertical: 10, 
-        marginHorizontal:10,
+        marginVertical: "2%", 
+        marginHorizontal: "2%",
         height: 50,  
         borderColor: Colors.inactiveColor, 
         borderWidth:1, 
         borderRadius: 5,
-        padding:5,
+        padding:"3%",
         backgroundColor:"#ededed"
     },
 

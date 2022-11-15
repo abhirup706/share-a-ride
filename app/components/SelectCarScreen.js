@@ -101,8 +101,7 @@ const SelectCarScreen = (props) => {
             </Text>
           </View> */}
         <View style={{flex:1,flexDirection:"row",marginTop:-15,marginBottom:10}}>
-        <Text style={tailwind`text-left pb-0 pl-0 pt-0 mt-0 text-2xl font-bold`}>Welcome,</Text>
-        <Text style={[tailwind`text-left pb-0 pl-0 pt-0 mt-0 text-2xl font-bold`,{color:"coral"}]}> Abhirup!</Text>
+        <Text style={tailwind`text-left pb-0 pl-0 pt-0 mt-0 text-xl font-bold`}>Welcome!</Text>
         </View>
 
         <Card containerStyle={{justifyContent:"center",width:"90%",height:180, alignItems:"left",alignSelf:"center",paddingBottom:30,marginTop:-70,

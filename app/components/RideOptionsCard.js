@@ -93,7 +93,7 @@ const RideOptionsCard = () => {
                         style={tailwind`p-3`}
                     />
                 </TouchableOpacity>
-                <Text style={tailwind`text-center text-xl font-bold`}>Select a Host  |  {travelTimeInformation?.distance?.text}</Text>
+                <Text style={tailwind`text-center text-xl font-bold`}>Select a Provider  |  <Text style={[tailwind`text-center text-xl font-bold`,{color:"coral"}]}>{travelTimeInformation?.distance?.text}</Text></Text>
             </View>
             <View style={tailwind`flex-1 mt-2`}>
                 <FlatList

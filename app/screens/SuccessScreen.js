@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity,Linking } from 'react-native';
 import Screen from '../components/Screen';
 import tw from 'tailwind-react-native-classnames';
 import Constants from 'expo-constants'
@@ -10,6 +10,27 @@ import { useNavigation } from '@react-navigation/native';
 const SuccessScreen = ({ route }) => {
     const { data } = route.params;
     const navigation = useNavigation()
+
+    const openDialScreen = () => {
+        let number = '';
+        if (Platform.OS === 'ios') {
+          number = 'telprompt:${091123456789}';
+        } else {
+          number = 'tel:${091123456789}';
+        }
+        Linking.openURL(number);
+      };
+
+      const openMessageApp = () => {
+        let number = '';
+        if (Platform.OS === 'ios') {
+          number = 'telprompt:${091123456789}';
+        } else {
+          number = 'tel:${091123456789}';
+        }
+        Linking.openURL(`sms:091123456789`);
+      };
+
 
     return (
         <Screen style={tw`bg-white h-full justify-center`}>

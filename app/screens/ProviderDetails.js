@@ -10,8 +10,8 @@ import { setDestination, setOrigin } from '../redux/slices/navSlice';
 import NavFavourites from '../components/NavFavourites';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-console.log(GOOGLE_MAP_APIKEY)
- const GOOGLE_MAP_APIKEY = "AIzaSyA2NZvrKgSRaGgu2FW3SMPPAAfwBtAGKgo"
+
+const GOOGLE_MAP_APIKEY = "AIzaSyA2NZvrKgSRaGgu2FW3SMPPAAfwBtAGKgo"
 
 const HomeScreen = () => {
     const dispatch = useDispatch()

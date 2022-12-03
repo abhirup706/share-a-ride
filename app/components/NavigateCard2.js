@@ -15,11 +15,14 @@ import moment from 'moment';
 import {Picker} from '@react-native-picker/picker';
 import Colors from "../constants/colors";
 import SelectDropdown from "react-native-select-dropdown";
+import { useSelector } from 'react-redux'
+import { selectUserName } from '../redux/slices/dataSlice';
 
 // const GOOGLE_MAP_APIKEY = ""
 const GOOGLE_MAP_APIKEY = "AIzaSyA2NZvrKgSRaGgu2FW3SMPPAAfwBtAGKgo"
 
 const NavigateCard2 = () => {
+    const userName = useSelector(selectUserName)
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -49,7 +52,7 @@ const NavigateCard2 = () => {
     return (
         <Screen style={tailwind`bg-white flex-1 mt-0 pt-5`}>
             <View style={{flex:1,flexDirection:"column",marginBottom:0,maxHeight:"42%"}}>
-            <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`}>Welcome!</Text>
+            <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`}>Welcome <Text style={[tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`,{color:"coral"}]}>{userName}!</Text></Text>
             {isDateVisible &&
                 <Text 
             style={{color:"indianred",marginLeft:"5%",marginBottom:"1%"}}

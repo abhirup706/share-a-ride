@@ -9,7 +9,10 @@ import {
   ImageBackground
 } from "react-native";
 import tailwind from 'tailwind-react-native-classnames';
+import { setUserName } from '../redux/slices/dataSlice'
 let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/gm;
+import { useDispatch } from 'react-redux'
+
 
 
 const image = { uri: "https://media2.giphy.com/media/yAjIXTFgZtfn6ix3Wt/giphy.gif?cid=790b7611209a359572fe7cff6e2a2ffe67295a71f36d3072&rid=giphy.gif&ct=g" };
@@ -19,7 +22,7 @@ import { Dimensions } from 'react-native';
 const SignupScreen = (props) => {
 
     const screenHeight = Dimensions.get('window').height
-
+    const dispatch = useDispatch()
     const [userName, SetUserName] = useState("")
     const [password, SetPassword] = useState("")
     const [email, SetEmail] = useState("")
@@ -52,6 +55,7 @@ const SignupScreen = (props) => {
                         value={userName}
                         onChangeText = {(newUsername) => {
                             SetUserName(newUsername)
+                            dispatch(setUserName(newUsername))
                          }}
                     />
                 </View>

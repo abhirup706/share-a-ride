@@ -12,8 +12,8 @@ export const sendData = []
 const data = [
     {
         id: "Uber-X-123",
-        title: "Riya Bhargava",
-        gender: "Female",
+        title: "John Doe",
+        gender: "Male",
         rating: "4.5",
         since: "7",
         multiplier: 1,
@@ -21,8 +21,8 @@ const data = [
     },
     {
         id: "Uber-XL-456",
-        title: "Abhijeet Vaghela",
-        gender: "Female",
+        title: "Fernandez S.",
+        gender: "Male",
         rating: "4.5",
         since: "7",
         multiplier: 1.2,
@@ -30,8 +30,8 @@ const data = [
     },
     {
         id: "Uber-XL-911",
-        title: "Alex John",
-        gender: "Female",
+        title: "Max Will",
+        gender: "Male",
         rating: "4.5",
         since: "7",
         multiplier: 1.9,
@@ -39,8 +39,10 @@ const data = [
     },
     {
         id: "Uber-LUX-123",
-        title: "Manasi Barhan Purkar",
+        title: "Denzel Wash",
         multiplier: 1.75,
+        gender:"Male",
+        rating:"5.0",
         image: "https://links.papareact.com/7pf"
     },
 ]
@@ -86,7 +88,7 @@ const RideOptionsCard2 = ({route}) => {
                         style={tailwind`p-3`}
                     />
                 </TouchableOpacity>
-                <Text style={tailwind`text-center text-xl font-bold`}>Select a ride - {travelTimeInformation?.distance?.text}</Text>
+                <Text style={tailwind`text-center text-xl font-bold`}>Select a Rider | <Text style={[tailwind`text-center text-xl font-bold`,{color:"coral"}]}>{travelTimeInformation?.distance?.text}</Text></Text>
             </View>
             <View style={[tailwind`flex-1 mt-2`]}>
                 <FlatList

@@ -10,11 +10,15 @@ import { useNavigation } from '@react-navigation/native'
 import { Icon } from 'react-native-elements'
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from 'moment';
+import { useSelector } from 'react-redux'
+import { selectUserName } from '../redux/slices/dataSlice'
 
 // const GOOGLE_MAP_APIKEY = ""
 const GOOGLE_MAP_APIKEY = "AIzaSyA2NZvrKgSRaGgu2FW3SMPPAAfwBtAGKgo"
 
 const NavigateCard = () => {
+
+    const userName = useSelector(selectUserName)
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -38,7 +42,8 @@ const NavigateCard = () => {
     return (
         <Screen style={tailwind`bg-white flex-1 mt-0 pt-5`}>
             <View style={{flex:1,flexDirection:"column",maxHeight:"42%"}}>
-            <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`}>Welcome!</Text>
+            <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`}>Welcome <Text style={[tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-xl font-bold`,{color:"coral"}]}>{userName}!</Text></Text>
+            
             {isDateVisible &&
                 <Text 
             style={{color:"indianred",marginLeft:"5%",marginBottom:"5%"}}

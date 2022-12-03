@@ -9,12 +9,14 @@ import {
   ImageBackground,
   Image
 } from "react-native";
+import { useSelector } from 'react-redux'
+import { selectUserName } from '../redux/slices/dataSlice'
 
 
 
 import Colors from "../constants/colors";
 import { Dimensions } from 'react-native';
-import Logo from '../assets/logo.png'
+import Logo from '../assets/logo.png';
 
 import {
     useBlurOnFulfill,
@@ -26,6 +28,7 @@ import { SafeAreaView } from "react-native-web";
   const CELL_COUNT = 6;
 
 const WelcomeScreen = (props) => {
+    const userName = useSelector(selectUserName)
 
     const screenHeight = Dimensions.get('window').height
     const [value, setValue] = useState('');
@@ -40,7 +43,8 @@ const WelcomeScreen = (props) => {
     return (
       <View style={{backgroundColor:"white"}}>
         <View style={{marginTop:"20%",marginLeft:"5%"}}>
-        <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-4xl font-bold`}>Welcome!</Text>
+        <Text style={tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-4xl font-bold`}>Welcome</Text>
+        <Text style={[tailwind`text-left pb-0 pl-5 pt-0 mt-0 text-4xl font-bold`,{color:"coral"}]}>{userName}!</Text>
         </View>
         {/* <ImageBackground source={require('../assets/background.png')} style={styles.image}> */}
         <ScrollView style={{marginHorizontal: "3%", alignContent: "center",backgroundColor:"white"}}

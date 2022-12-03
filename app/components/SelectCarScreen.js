@@ -6,6 +6,8 @@ import SelectDropdown from "react-native-select-dropdown";
 import { Modal, Pressable } from "react-native";
 import { Card } from "react-native-elements";
 import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
+import { selectUserName } from '../redux/slices/dataSlice';
 
 
 import {
@@ -29,6 +31,7 @@ import { FlatList } from "react-native";
 
 
 const SelectCarScreen = (props) => {
+  const userName = useSelector(selectUserName)
   const screenHeight = Dimensions.get("window").height;
   const screenWidth = Dimensions.get("window").width;
   const [cars, SetCars] = useState([
@@ -101,7 +104,7 @@ const SelectCarScreen = (props) => {
             </Text>
           </View> */}
         <View style={{flex:1,flexDirection:"row",marginTop:-15,marginBottom:10}}>
-        <Text style={tailwind`text-left pb-0 pl-0 pt-0 mt-0 text-xl font-bold`}>Welcome!</Text>
+        <Text style={tailwind`text-left pb-0 pl-0 pt-0 mt-0 text-xl font-bold`}>Welcome <Text style={[tailwind`text-left pb-0 pl-0 pt-0 mt-0 text-xl font-bold`,{color:"coral"}]}>{userName}!</Text></Text>
         </View>
 
         <Card containerStyle={{justifyContent:"center",width:"90%",height:180, alignItems:"left",alignSelf:"center",paddingBottom:30,marginTop:-70,

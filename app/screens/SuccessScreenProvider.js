@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity,Linking } from 'react-native';
 import Screen from '../components/Screen';
 import tw from 'tailwind-react-native-classnames';
 import Constants from 'expo-constants'
@@ -10,6 +10,27 @@ import { useNavigation } from '@react-navigation/native';
 const SuccessScreenProvider = ({ route }) => {
     const { data } = route.params;
     const navigation = useNavigation()
+
+    const openDialScreen = () => {
+        let number = '';
+        if (Platform.OS === 'ios') {
+          number = 'telprompt:${091123456789}';
+        } else {
+          number = 'tel:${091123456789}';
+        }
+        Linking.openURL(number);
+      };
+
+      const openMessageApp = () => {
+        let number = '';
+        if (Platform.OS === 'ios') {
+          number = 'telprompt:${091123456789}';
+        } else {
+          number = 'tel:${091123456789}';
+        }
+        Linking.openURL(`sms:091123456789`);
+      };
+
 
     return (
         <Screen style={tw`bg-white h-full justify-center`}>
@@ -38,8 +59,8 @@ const SuccessScreenProvider = ({ route }) => {
                 </View>
                 <View style={tw`p-5 w-full self-center`}>
                     <Image
-                        source={require('../assets/car_animation.gif')}
-                        style={tw`w-60 h-40`}
+                        source={require('../assets/waiting.jpg')}
+                        style={[tw`w-60 h-40`,{resizeMode:"contain"}]}
                     />
                 </View>
                 <View style={tw`p-5 text-center self-center`}>
